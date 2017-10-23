@@ -48,7 +48,7 @@
 	});
 
 
-})(jQuery);
+
 
 //图片自动左切换
 	var slidePic={
@@ -102,16 +102,15 @@
 			var ob=this;
 			ob.liPos=ob.tag.children().eq(1).css('left');
 			ob.moveLeft();
-			ob.tag.mouseenter(function(){
-				clearTimeout(ob.timer)
+			ob.tag.on('mouseenter',function(){
+				clearTimeout(ob.timer);
 				ob.timer=null;
 			});
 			//out 在子元素之间切换也会触发
-			ob.tag.mouseleave(function(){
+			ob.tag.on('mouseleave',function(){
 				ob.moveLeft();
 			});
-
 		}
 	};
 	slidePic.startToMove();
-	window.slidePic=slidePic;
+})(jQuery);

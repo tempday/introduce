@@ -162,6 +162,8 @@ var autoMusic={
 	rotate:function (){
 		this.deg+=3;
 		this.msPic.style.transform="rotate("+this.deg+"deg)";
+		this.msPic.style.webkitTransform="rotate("+this.deg+"deg)";
+		this.msPic.style.msTransform="rotate("+this.deg+"deg)";
 		this.timer&&(clearTimeout(this.timer));
 		this.timer=setTimeout(function(){
 			autoMusic.rotate();

@@ -1,4 +1,4 @@
-/* ==== Google font ==== */
+// ==== Google font ====
 //@import url('http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Montserrat:700|Merriweather:400italic');
 @import "default_clr.less";
 @font-family-mic:  "Helvetica Neue","Microsoft Yahei","SimHei", Helvetica, Arial, sans-serif;
@@ -277,8 +277,6 @@ hr {
 //文字下的颜色条
 hr.border-top{
     border-top: 3px solid @color_std;
-    //animation: extention 5s infinite;
-
 }
 .extention(){
     0%{
@@ -303,19 +301,19 @@ hr.border-top{
 @-webkit-keyframes extention{
     .extention();
 }
+//自定义颜色条动画
 .exten{
     -webkit-animation-name: extention;
     animation-name: extention;
 }
 
-/* margins */
+// margins
 .marginbot-0{margin-bottom:0 !important;}
 .marginbot-10{margin-bottom:10px !important;}
 .marginbot-20{margin-bottom:20px !important;}
 .marginbot-30{margin-bottom:30px !important;}
 .marginbot-40{margin-bottom:40px !important;}
 .marginbot-50{margin-bottom:50px !important;}
-
 
 //===========================第三块===========================
 
@@ -334,7 +332,6 @@ hr.border-top{
 .section-heading i {
     margin-bottom: 20px;
 }
-
 
 /* --- section bg var --- */
 
@@ -358,11 +355,7 @@ hr.border-top{
     color: #fff;
 }
 
-
-
-
 //===========================第一块-个人单页===========================
-
 
 .intro {
     width:100%;
@@ -477,11 +470,21 @@ div.sign{
     &:hover{
         animation:jump .3s linear 2;
         -webkit-animation:jump .3s linear 2;
-        -ms-animation:jump .3s linear 2;
         -moz-animation:jump .3s linear 2;
+	    //-ms-animation:jumpie .3s linear 2;
+	    //ie10 以下不支持animation
     }
+
 }
 //图标悬浮动作
+@-ms-keyframes jumpie{
+	from{
+		-ms-transform:rotate(-15deg);
+	}
+	to{
+		-ms-transform:rotate(30deg);
+	}
+}
 .jump(){
     0%{
         transform:rotate(0deg);
@@ -496,22 +499,25 @@ div.sign{
         opacity:.5;
     }
     50%{
-        transform:rotate(0deg);
+	    transform:rotate(0deg);
+	    -ms-transform:rotate(0deg);
         opacity:1;
     }
     75%{
-        transform:rotate(15deg);
+	    transform:rotate(15deg);
+	    -ms-transform:rotate(15deg);
         opacity:.5;
     }
     100%{
-        transform:rotate(0deg);
+	    transform:rotate(0deg);
+	    -ms-transform:rotate(0deg);
         opacity:1;
     }
 }
 @keyframes jump{ .jump();}
 @-webkit-keyframes jump{ .jump();}
-@-ms-keyframes jump{ .jump();}
 @-moz-keyframes jump{ .jump();}
+@-ms-keyframes jump{ .jump();}
 
     //盒子颜色
 .boxed-grey {
@@ -539,6 +545,7 @@ div.sign{
     margin-bottom: 10px;
 }
 
+/*
 .avatar {
     margin-bottom: 20px;
 
@@ -591,7 +598,7 @@ div.sign{
 .team-social .social-deviantart a:hover{background: #adc376;}
 .team-social .social-google a:hover{background: #333;}
 .team-social .social-vimeo a:hover{background: #71c6f3;}
-
+*/
 
 // ===========================--- Services============================
 
@@ -600,7 +607,7 @@ div.sign{
 }
 
 // ===========================--- Contact============================
-
+/*
 form#contact-form .form-group label {
     text-align: left !important;
     display: block;
@@ -665,6 +672,7 @@ form#contact-form input:focus,form#contact-form select:focus,form#contact-form t
     margin:0;
     padding:0;
 }
+
 .company-social .social-facebook a{background: #3873ae;}
 .company-social .social-twitter a{background: #62c6f8;}
 .company-social .social-dribble a{background: #d74980;}
@@ -677,7 +685,7 @@ form#contact-form input:focus,form#contact-form select:focus,form#contact-form t
 .company-social .social-deviantart a:hover{background: #adc376;}
 .company-social .social-google a:hover{background: #333;}
 .company-social .social-vimeo a:hover{background: #71c6f3;}
-
+*/
 //-------------作品-------------
 #collection{
     //text-align: center;
@@ -689,7 +697,7 @@ form#contact-form input:focus,form#contact-form select:focus,form#contact-form t
         position: relative;
         height: 12em;
         margin: 0 auto;
-        li.imgitem{
+        .imgItems{
             position: absolute;
             top:0;
             left: 0;
@@ -703,6 +711,7 @@ form#contact-form input:focus,form#contact-form select:focus,form#contact-form t
                 position: absolute;
                 top:100%;
                 left:0;
+	            //ie10一下无法支持transition
                 transition: top 0.2s linear;
                 color:#fff;
             }
@@ -726,48 +735,7 @@ footer p {
     color: #f8f8f8;
 }
 
-/* ==========================
-Parallax
-============================= */
-
-#parallax1{	
-    background-image: url(../img/parallax/1.jpg);
-}
-
-#parallax1:after {	
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQImWNgYGD4z0AswK4SAFXuAf8EPy+xAAAAAElFTkSuQmCC);
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    opacity: 0.7;
-    z-index: -1;
-}
-
-
-#parallax2{	
-    background-image: url(../img/parallax/2.jpg);
-
-}
-
-#parallax2:after  {	
-    background-image: url(data:image/png);
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    opacity: 0.7;
-    z-index: -1;
-}
-
-
-/* ===========================
---- Elements
-============================ */
+//=========================== btn  ============================
 
 .btn {
     border-radius: 0;
@@ -795,10 +763,7 @@ Parallax
     transition: background .3s ease-in-out;
 }
 
-.btn-circle.btn-dark {
-    border: 2px solid #666;
-    color: #666;
-}
+
 
 
 .btn-circle:hover,
@@ -808,107 +773,6 @@ Parallax
     background: rgba(255,255,255,.1);
 }
 
-.btn-circle.btn-dark :hover,
-.btn-circle.btn-dark :focus {
-    outline: 0;
-    color: #999;
-    background: #fff;
-}
-
-.btn-circle.btn-dark :hover i,
-.btn-circle.btn-dark :focus i{
-    color: #999;
-}
-/*
-.page-scroll .btn-circle i.animated {
-    -webkit-transition-property: -webkit-transform;
-    -webkit-transition-duration: 1s;
-    -moz-transition-property: -moz-transform;
-    -moz-transition-duration: 1s;
-}
-
-.page-scroll .btn-circle:hover i.animated {
-    -webkit-animation-name: pulse;
-    -moz-animation-name: pulse;
-    -webkit-animation-duration: 1.5s;
-    -moz-animation-duration: 1.5s;
-    -webkit-animation-iteration-count: infinite;
-    -moz-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-    -moz-animation-timing-function: linear;
-}
-
-@-webkit-keyframes pulse {    
-0 {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-}
-
-50% {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-}
-
-100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-}
-}
-
-@-moz-keyframes pulse {    
-0 {
-    -moz-transform: scale(1);
-    transform: scale(1);
-}
-
-50% {
-    -moz-transform: scale(1.2);
-    transform: scale(1.2);
-}
-
-100% {
-    -moz-transform: scale(1);
-    transform: scale(1);
-}
-}
-*/
-
-#text {
-    color: #fff;
-    background: #ffcc00;
-}
-
-#map {
-    height: 500px;
-}
-
-
-.btn-skin:hover,
-.btn-skin:focus,
-.btn-skin:active,
-.btn-skin.active {
-    color: #fff;
-    background-color: #666;
-    border-color: #666;
-}
-
-
-.btn-default:hover,
-.btn-default:focus {
-    border: 1px solid #28c3ab;
-    outline: 0;
-    color: #000;
-    background-color: #28c3ab;
-}
-
-.btn-huge {
-    padding: 25px;
-    font-size: 26px;
-}
-
-.banner-social-buttons {
-    margin-top: 0;
-}
 
 
 /* Media queries */
@@ -937,7 +801,7 @@ Parallax
     .intro {
         height: 100%;
         padding: 0;
-        background: ;
+        //background: ;
     }
 
     .brand-heading {
